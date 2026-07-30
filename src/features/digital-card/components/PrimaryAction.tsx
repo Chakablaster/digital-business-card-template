@@ -1,5 +1,7 @@
-import type { PrimaryActionConfig } from '../types/card.types'
+import { createElement } from 'react'
+
 import { resolveIcon } from '../icons/resolveIcon'
+import type { PrimaryActionConfig } from '../types/card.types'
 import { resolveLinkTarget } from '../utils/resolveLinkTarget'
 
 interface PrimaryActionProps {
@@ -15,7 +17,11 @@ export function PrimaryAction({ action }: PrimaryActionProps) {
     return null
   }
 
-  const Icon = resolveIcon(action.icon)
+  const icon = createElement(resolveIcon(action.icon), {
+    'aria-hidden': true,
+    className: 'h-5 w-5 shrink-0',
+  })
+
   const linkTarget = resolveLinkTarget(action.href)
 
   return (
@@ -24,7 +30,7 @@ export function PrimaryAction({ action }: PrimaryActionProps) {
       {...linkTarget}
       className="mt-7 flex w-full items-center gap-4 rounded-2xl bg-(--primary-action-background) px-5 py-4 text-left text-(--primary-action-text) transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--focus-ring)"
     >
-      <Icon aria-hidden="true" className="h-5 w-5 shrink-0" />
+      {icon}
 
       <span className="min-w-0">
         <span className="block font-semibold">{action.label.trim()}</span>

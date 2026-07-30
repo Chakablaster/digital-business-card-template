@@ -1,3 +1,5 @@
+import { createElement } from 'react'
+
 import { resolveIcon } from '../icons/resolveIcon'
 import type { SocialLinkConfig } from '../types/card.types'
 import { resolveLinkTarget } from '../utils/resolveLinkTarget'
@@ -21,10 +23,14 @@ export function SocialLinks({ links }: SocialLinksProps) {
     <nav className="mt-7" aria-label="Social links">
       <ul className="flex flex-wrap justify-center gap-3">
         {visibleLinks.map((link, index) => {
-          const Icon = resolveIcon(link.platform)
           const href = link.href.trim()
           const label = link.label.trim()
           const linkTarget = resolveLinkTarget(href)
+
+          const icon = createElement(resolveIcon(link.platform), {
+            'aria-hidden': true,
+            className: 'h-5 w-5',
+          })
 
           return (
             <li key={`${link.platform}-${href}-${index}`}>
@@ -34,7 +40,7 @@ export function SocialLinks({ links }: SocialLinksProps) {
                 {...linkTarget}
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-(--card-border) text-(--secondary-text) transition duration-200 hover:-translate-y-0.5 hover:border-(--accent) hover:text-(--accent) focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--focus-ring)"
               >
-                <Icon aria-hidden="true" className="h-5 w-5" />
+                {icon}
               </a>
             </li>
           )
