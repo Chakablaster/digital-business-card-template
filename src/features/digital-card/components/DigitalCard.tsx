@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react'
 import cardConfig from '../../../config/card.config'
 import { resolveTheme } from '../themes/resolveTheme'
 import type { ThemeTokens } from '../themes/themePresets'
+import { PrimaryAction } from './PrimaryAction'
 import { ProfileSection } from './ProfileSection'
 
 type ThemeStyles = CSSProperties & Record<`--${string}`, string>
@@ -46,6 +47,7 @@ export function DigitalCard() {
     >
       <article className="w-full max-w-md rounded-3xl border border-(--card-border) bg-(--card-background) px-6 py-8 shadow-xl sm:px-8">
         <ProfileSection profile={cardConfig.profile} />
+        <PrimaryAction action={cardConfig.primaryAction} />
       </article>
     </main>
   )
