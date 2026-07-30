@@ -43,6 +43,9 @@ const cardConfig = {
 
   qrCode: {
     cardUrl: '',
+    dialogTitle: 'Share This Card',
+    dialogDescription:
+      'Scan the QR code to open this digital business card.',
   },
 
   appearance: {

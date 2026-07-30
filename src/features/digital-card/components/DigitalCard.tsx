@@ -1,45 +1,63 @@
-import { resolveIcon } from '../icons/resolveIcon'
-import type { SocialLinkConfig } from '../types/card.types'
-import { resolveLinkTarget } from '../utils/resolveLinkTarget'
+import type { CSSProperties } from 'react'
 
-interface SocialLinksProps {
-  links: SocialLinkConfig[]
-}
+import cardConfig from '../../../config/card.config'
+import { resolveTheme } from '../themes/resolveTheme'
+import type { ThemeTokens } from '../themes/themePresets'
+import { PrimaryAction } from './PrimaryAction'
+import { ProfileSection } from './ProfileSection'
+import { ShareCard } from './ShareCard'
+import { SocialLinks } from './SocialLinks'
 
-function isCompleteLink(link: SocialLinkConfig): boolean {
-  return Boolean(link.label.trim() && link.href.trim())
-}
+type ThemeStyles = CSSProperties & Record<`--${string}`, string>
 
-export function SocialLinks({ links }: SocialLinksProps) {
-  const visibleLinks = links.filter(isCompleteLink)
-
-  if (visibleLinks.length === 0) {
-    return null
+function createThemeStyles(theme: ThemeTokens): ThemeStyles {
+  return {
+    '--page-background': theme.pageBackground,
+    '--card-background': theme.cardBackground,
+    '--primary-text': theme.primaryText,
+    '--secondary-text': theme.secondaryText,
+    '--muted-text': theme.mutedText,
+    '--card-border': theme.border,
+    '--accent': theme.accent,
+    '--accent-text': theme.accentText,
+    '--primary-action-background': theme.primaryActionBackground,
+    '--primary-action-text': theme.primaryActionText,
+    '--dialog-background': theme.dialogBackground,
+    '--focus-ring': theme.focusRing,
   }
+}
+
+export function DigitalCard() {
+  const theme = resolveTheme(cardConfig.appearance)
+  const themeStyles = createThemeStyles(theme)
+  const backgroundImage = cardConfig.appearance.backgroundImage.trim()
 
   return (
-    <nav className="mt-7" aria-label="Social links">
-      <ul className="flex flex-wrap justify-center gap-3">
-        {visibleLinks.map((link, index) => {
-          const Icon = resolveIcon(link.platform)
-          const href = link.href.trim()
-          const label = link.label.trim()
-          const linkTarget = resolveLinkTarget(href)
+    <main
+      className="flex min-h-dvh items-center justify-center bg-(--page-background) px-4 py-8"
+      style={{
+        ...themeStyles,
+        ...(backgroundImage
+          ? {
+              backgroundImage: `url("${backgroundImage}")`,
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+            }
+          : {}),
+      }}
+    >
+      <article className="w-full max-w-md rounded-3xl border border-(--card-border) bg-(--card-background) px-6 py-8 shadow-xl sm:px-8">
+        <ProfileSection profile={cardConfig.profile} />
+        <PrimaryAction action={cardConfig.primaryAction} />
+        <SocialLinks links={cardConfig.socialLinks} />
 
-          return (
-            <li key={`${link.platform}-${href}-${index}`}>
-              <a
-                href={href}
-                aria-label={label}
-                {...linkTarget}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-(--card-border) text-(--secondary-text) transition duration-200 hover:-translate-y-0.5 hover:border-(--accent) hover:text-(--accent) focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--focus-ring)"
-              >
-                <Icon aria-hidden="true" className="h-5 w-5" />
-              </a>
-            </li>
-          )
-        })}
-      </ul>
-    </nav>
+        <ShareCard
+          metadata={cardConfig.metadata}
+          qrCode={cardConfig.qrCode}
+          themeStyles={themeStyles}
+        />
+      </article>
+    </main>
   )
 }

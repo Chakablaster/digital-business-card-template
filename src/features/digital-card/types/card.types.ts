@@ -76,6 +76,8 @@ export interface SocialLinkConfig {
 
 export interface QrCodeConfig {
   cardUrl?: string
+  dialogTitle: string
+  dialogDescription?: string
 }
 
 export interface ThemeColorOverrides {
