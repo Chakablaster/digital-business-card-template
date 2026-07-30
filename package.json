@@ -1,7 +1,18 @@
 {
   "name": "digital-business-card-template",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "A configurable digital business card template built with React, TypeScript, Vite, and Tailwind CSS.",
+  "license": "MIT",
+  "author": "Mohamed Usaidh",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chakablaster/digital-business-card-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Chakablaster/digital-business-card-template/issues"
+  },
+  "homepage": "https://github.com/Chakablaster/digital-business-card-template#readme",
   "type": "module",
   "scripts": {
     "dev": "vite",
