@@ -1,8 +1,8 @@
 export const THEME_PRESETS = [
   'light',
   'dark',
-  'slate-blue',
-  'warm-sand',
+  'slateBlue',
+  'warmSand',
   'forest',
 ] as const
 

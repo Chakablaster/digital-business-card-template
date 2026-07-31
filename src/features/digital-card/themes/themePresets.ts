@@ -36,7 +36,7 @@ export const themePresets: Record<ThemePreset, ThemeTokens> = {
     focusRing: '#93c5fd',
   },
 
-  'slate-blue': {
+  'slateBlue': {
     pageBackground: '#dbe5f1',
     cardBackground: '#f8fafc',
     primaryText: '#172033',
@@ -51,7 +51,7 @@ export const themePresets: Record<ThemePreset, ThemeTokens> = {
     focusRing: '#466f9f',
   },
 
-  'warm-sand': {
+  'warmSand': {
     pageBackground: '#efe5d2',
     cardBackground: '#fffaf0',
     primaryText: '#33281c',

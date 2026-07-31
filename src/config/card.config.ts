@@ -2,32 +2,31 @@ import type { CardConfig } from '../features/digital-card/types/card.types'
 
 const cardConfig = {
   metadata: {
-    pageTitle: 'Your Name | Digital Business Card',
-    pageDescription:
-      'A customizable digital business card with contact details, social links, and a shareable QR code.',
+    pageTitle: 'Your Name | Digital Business Card', // Text shown in the browser tab.
+    pageDescription: 'A short description of your digital business card.', // Summary used by the page metadata.
   },
 
   profile: {
-    fullName: 'Your Name',
-    profileImage: '/assets/profile.jpg',
-    nickname: '',
-    role: 'Your Role',
-    descriptor: 'A short description about what you do',
-    bio: 'Add a concise introduction that helps visitors understand who you are and how you can help.',
+    fullName: 'Your Name', // Main name shown on the card.
+    profileImage: '/assets/profile.jpg', // Image stored inside public/assets.
+    nickname: '', // Optional name shown beside the main name. Empty values are hidden.
+    role: 'Your Role', // Main role, position, or title.
+    descriptor: 'A short description about what you do', // Optional supporting line below the role.
+    bio: 'Add a concise introduction about who you are and what you do.', // Optional introduction shown below the profile details.
   },
 
   primaryAction: {
-    icon: 'email',
-    label: 'Contact Me',
-    supportingText: 'hello@example.com',
-    href: 'mailto:hello@example.com',
+    icon: 'email', // Icon used for the main action.
+    label: 'Contact Me', // Main action text. Empty together with href hides the action.
+    supportingText: 'hello@example.com', // Optional smaller text shown inside the action.
+    href: 'mailto:hello@example.com', // Accepts email, phone, website, internal page, or section links.
   },
 
   socialLinks: [
     {
-      platform: 'linkedin',
-      label: 'LinkedIn',
-      href: 'https://www.linkedin.com/',
+      platform: 'linkedin', // Controls the icon. Unknown names use the general link icon.
+      label: 'LinkedIn', // Name announced to visitors and assistive technology.
+      href: 'https://www.linkedin.com/', // Full destination for this link.
     },
     {
       platform: 'github',
@@ -39,20 +38,19 @@ const cardConfig = {
       label: 'Instagram',
       href: 'https://www.instagram.com/',
     },
-  ],
+  ], // Add as many links as needed. Every complete entry is shown in this order.
 
   qrCode: {
-    cardUrl: '',
-    dialogTitle: 'Share This Card',
-    dialogDescription:
-      'Scan the QR code to open this digital business card.',
+    cardUrl: '', // Empty uses the current page address. Add the final Vercel address after deployment.
+    dialogTitle: 'Share This Card', // Heading shown when the QR code opens.
+    dialogDescription: 'Scan the QR code to open this digital business card.', // Text shown below the QR heading.
   },
 
   appearance: {
-    preset: 'light',
-    colorOverrides: {},
-    backgroundImage: '',
-    dividerImage: '',
+    preset: 'light', // Available values: light, dark, slateBlue, warmSand, forest.
+    colorOverrides: {}, // Add only the theme colours that need a custom value.
+    backgroundImage: '', // Use '/assets/background.jpg'. Empty uses the theme background.
+    dividerImage: '', // Use '/assets/divider.png'. Empty removes the divider.
   },
 } satisfies CardConfig
 
