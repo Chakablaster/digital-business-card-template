@@ -445,12 +445,6 @@ The workflow is located at:
 
 `.github/workflows/quality-checks.yml`
 
-## Contributing
-
-Read `CONTRIBUTING.md` before submitting changes.
-
-Public contributions must remain reusable, configuration-driven, accessible, and free from personal data or deployment specific branding.
-
 ## Security
 
 Do not report vulnerabilities through public issues.
