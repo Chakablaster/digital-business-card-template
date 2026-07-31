@@ -49,8 +49,8 @@ const cardConfig = {
   appearance: {
     preset: 'light', // Available values: light, dark, slateBlue, warmSand, forest.
     colorOverrides: {}, // Add only the theme colours that need a custom value.
-    backgroundImage: '', // Use '/assets/background.jpg'. Empty uses the theme background.
-    dividerImage: '', // Use '/assets/divider.png'. Empty removes the divider.
+    backgroundImage: '/assets/background.jpg', // Cover image shown at the top of the card.
+    dividerImage: '/assets/divider.png', // Decorative divider shown before the bio.
   },
 } satisfies CardConfig
 

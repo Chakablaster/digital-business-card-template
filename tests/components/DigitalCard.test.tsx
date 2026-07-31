@@ -23,9 +23,34 @@ describe('DigitalCard', () => {
 
     const main = screen.getByRole('main')
 
-    expect(main.style.getPropertyValue('--page-background')).toBe('#eef2f7')
-    expect(main.style.getPropertyValue('--card-background')).toBe('#ffffff')
-    expect(main.style.getPropertyValue('--primary-text')).toBe('#111827')
+    expect(main.style.getPropertyValue('--page-background')).toBe(
+      '#eef2f7',
+    )
+
+    expect(main.style.getPropertyValue('--card-background')).toBe(
+      '#ffffff',
+    )
+
+    expect(main.style.getPropertyValue('--primary-text')).toBe(
+      '#111827',
+    )
+
     expect(main.style.getPropertyValue('--accent')).toBe('#2563eb')
+  })
+
+  it('uses the background image only for the profile cover', () => {
+    const { container } = render(<DigitalCard />)
+
+    const main = screen.getByRole('main')
+
+    const cover = container.querySelector(
+      'section > div[aria-hidden="true"]',
+    )
+
+    expect(main.style.backgroundImage).toBe('')
+
+    expect(cover).toHaveStyle({
+      backgroundImage: 'url("/assets/background.jpg")',
+    })
   })
 })

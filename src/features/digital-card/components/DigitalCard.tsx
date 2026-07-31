@@ -3,7 +3,6 @@ import type { CSSProperties } from 'react'
 import cardConfig from '../../../config/card.config'
 import { resolveTheme } from '../themes/resolveTheme'
 import type { ThemeTokens } from '../themes/themePresets'
-import { DecorativeDivider } from './DecorativeDivider'
 import { PrimaryAction } from './PrimaryAction'
 import { ProfileSection } from './ProfileSection'
 import { ShareCard } from './ShareCard'
@@ -31,38 +30,29 @@ function createThemeStyles(theme: ThemeTokens): ThemeStyles {
 export function DigitalCard() {
   const theme = resolveTheme(cardConfig.appearance)
   const themeStyles = createThemeStyles(theme)
-  const backgroundImage = cardConfig.appearance.backgroundImage.trim()
 
   return (
     <main
       className="flex min-h-dvh items-center justify-center bg-(--page-background) px-4 py-8"
-      style={{
-        ...themeStyles,
-        ...(backgroundImage
-          ? {
-              backgroundImage: `url("${backgroundImage}")`,
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover',
-            }
-          : {}),
-      }}
+      style={themeStyles}
     >
-      <article className="w-full max-w-md rounded-3xl border border-(--card-border) bg-(--card-background) px-6 py-8 shadow-xl sm:px-8">
-        <ProfileSection profile={cardConfig.profile} />
-
-        <DecorativeDivider
-          imagePath={cardConfig.appearance.dividerImage}
+      <article className="w-full max-w-md overflow-hidden rounded-3xl border border-(--card-border) bg-(--card-background) shadow-xl">
+        <ProfileSection
+          profile={cardConfig.profile}
+          backgroundImage={cardConfig.appearance.backgroundImage}
+          dividerImage={cardConfig.appearance.dividerImage}
         />
 
-        <PrimaryAction action={cardConfig.primaryAction} />
-        <SocialLinks links={cardConfig.socialLinks} />
+        <div className="px-6 pb-8 sm:px-8">
+          <PrimaryAction action={cardConfig.primaryAction} />
+          <SocialLinks links={cardConfig.socialLinks} />
 
-        <ShareCard
-          metadata={cardConfig.metadata}
-          qrCode={cardConfig.qrCode}
-          themeStyles={themeStyles}
-        />
+          <ShareCard
+            metadata={cardConfig.metadata}
+            qrCode={cardConfig.qrCode}
+            themeStyles={themeStyles}
+          />
+        </div>
       </article>
     </main>
   )
