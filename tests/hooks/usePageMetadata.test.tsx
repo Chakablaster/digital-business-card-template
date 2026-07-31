@@ -1,8 +1,7 @@
 import { render, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
 
-import { usePageMetadata } from './usePageMetadata'
-
+import { usePageMetadata } from '@/hooks/usePageMetadata'
 interface TestComponentProps {
   pageTitle: string
   pageDescription: string

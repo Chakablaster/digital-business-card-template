@@ -1,11 +1,8 @@
 import { describe, expect, it } from 'vitest'
 
-import cardConfig from '../../../config/card.config'
-import type { CardConfig } from '../types/card.types'
-import {
-  assertValidCardConfig,
-  validateCardConfig,
-} from './validateConfig'
+import cardConfig from '@/config/card.config'
+import type { CardConfig } from '@/features/digital-card/types/card.types'
+import { assertValidCardConfig, validateCardConfig } from '@/features/digital-card/utils/validateConfig'
 
 function createConfig(): CardConfig {
   return structuredClone(cardConfig)

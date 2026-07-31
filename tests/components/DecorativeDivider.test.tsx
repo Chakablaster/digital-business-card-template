@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import { DecorativeDivider } from './DecorativeDivider'
+import { DecorativeDivider } from '@/features/digital-card/components/DecorativeDivider'
 
 describe('DecorativeDivider', () => {
   it('renders the configured divider image', () => {

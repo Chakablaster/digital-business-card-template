@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest'
 
-import type { IconName } from '../types/card.types'
-import { iconRegistry } from './iconRegistry'
-import { normalizeIconName, resolveIcon } from './resolveIcon'
+import { iconRegistry } from '@/features/digital-card/icons/iconRegistry'
+import { normalizeIconName, resolveIcon } from '@/features/digital-card/icons/resolveIcon'
+import type { IconName } from '@/features/digital-card/types/card.types'
 
 describe('normalizeIconName', () => {
   it('normalizes capitalization', () => {

@@ -1,8 +1,8 @@
 import { render, screen, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import type { SocialLinkConfig } from '../types/card.types'
-import { SocialLinks } from './SocialLinks'
+import { SocialLinks } from '@/features/digital-card/components/SocialLinks'
+import type { SocialLinkConfig } from '@/features/digital-card/types/card.types'
 
 const links: SocialLinkConfig[] = [
   {

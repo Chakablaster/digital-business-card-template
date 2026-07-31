@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import type { CardProfile } from '../types/card.types'
-import { ProfileSection } from './ProfileSection'
+import { ProfileSection } from '@/features/digital-card/components/ProfileSection'
+import type { CardProfile } from '@/features/digital-card/types/card.types'
 
 const completeProfile: CardProfile = {
   fullName: 'Alex Morgan',

@@ -1,11 +1,8 @@
 import { describe, expect, it } from 'vitest'
 
-import { THEME_PRESETS } from '../types/card.types'
-import { resolveTheme } from './resolveTheme'
-import {
-  themePresets,
-  type ThemeTokens,
-} from './themePresets'
+import { resolveTheme } from '@/features/digital-card/themes/resolveTheme'
+import { themePresets, type ThemeTokens } from '@/features/digital-card/themes/themePresets'
+import { THEME_PRESETS } from '@/features/digital-card/types/card.types'
 
 const REQUIRED_THEME_TOKENS = [
   'pageBackground',

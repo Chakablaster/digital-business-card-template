@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { ShareButton } from './ShareButton'
+import { ShareButton } from '@/features/digital-card/components/ShareButton'
 
 function setNavigatorShare(
   shareFunction: ((data?: ShareData) => Promise<void>) | undefined,

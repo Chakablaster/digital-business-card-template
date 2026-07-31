@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { resolveCardUrl } from './resolveCardUrl'
+import { resolveCardUrl } from '@/features/digital-card/utils/resolveCardUrl'
 
 describe('resolveCardUrl', () => {
   it('uses the configured card URL when provided', () => {

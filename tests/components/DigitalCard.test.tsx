@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import { DigitalCard } from './DigitalCard'
+import { DigitalCard } from '@/features/digital-card/components/DigitalCard'
 
 describe('DigitalCard', () => {
   it('renders profile content from the central configuration', () => {

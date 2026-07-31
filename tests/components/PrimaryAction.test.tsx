@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import type { PrimaryActionConfig } from '../types/card.types'
-import { PrimaryAction } from './PrimaryAction'
+import { PrimaryAction } from '@/features/digital-card/components/PrimaryAction'
+import type { PrimaryActionConfig } from '@/features/digital-card/types/card.types'
 
 const emailAction: PrimaryActionConfig = {
   icon: 'email',

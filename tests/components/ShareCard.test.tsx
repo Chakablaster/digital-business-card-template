@@ -2,11 +2,8 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it } from 'vitest'
 
-import type {
-  CardMetadata,
-  QrCodeConfig,
-} from '../types/card.types'
-import { ShareCard } from './ShareCard'
+import { ShareCard } from '@/features/digital-card/components/ShareCard'
+import type { CardMetadata, QrCodeConfig } from '@/features/digital-card/types/card.types'
 
 const metadata: CardMetadata = {
   pageTitle: 'Digital Business Card',

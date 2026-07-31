@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { resolveLinkTarget } from './resolveLinkTarget'
+import { resolveLinkTarget } from '@/features/digital-card/utils/resolveLinkTarget'
 
 describe('resolveLinkTarget', () => {
   it('keeps email and phone links in the current context', () => {
