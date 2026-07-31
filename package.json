@@ -9,9 +9,6 @@
     "type": "git",
     "url": "git+https://github.com/Chakablaster/digital-business-card-template.git"
   },
-  "bugs": {
-    "url": "https://github.com/Chakablaster/digital-business-card-template/issues"
-  },
   "homepage": "https://github.com/Chakablaster/digital-business-card-template#readme",
   "type": "module",
   "scripts": {
